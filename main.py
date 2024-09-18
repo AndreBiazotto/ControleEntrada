@@ -18,7 +18,7 @@ def func(comeco, nome):
             for i in range(20):
                 if ponteiro < 3:
                     if root.usar_recurso(acoes[ponteiro], nome) == "espere":
-                        sleep(root.tempo_sono)
+                        sleep(root.tempo_sono + 1)
                     else:
                         sleep(2)
                         ponteiro = ponteiro + 1
@@ -34,13 +34,17 @@ t1 = Thread(target=func, args=[time_deslocado, "A"])
 t2 = Thread(target=func, args=[time_deslocado, "B"])
 t3 = Thread(target=func, args=[time_deslocado, "C"])
 t4 = Thread(target=func, args=[time_deslocado, "D"])
+t5 = Thread(target=func, args=[time_deslocado, "E"])
+
 
 t1.start()
 t2.start()
 t3.start()
 t4.start()
+t5.start()
 
 t1.join()
 t2.join()
 t3.join()
 t4.join()
+t5.join()
